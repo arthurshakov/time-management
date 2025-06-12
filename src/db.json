@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "id": "001",
+      "login": "anton",
+      "password": "qwerty123",
+      "role_id": 0
+    }
+  ],
+  "roles": [
+    {
+      "id": 0,
+      "name": "Аминистратор"
+    },
+    {
+      "id": 1,
+      "name": "Пользователь"
+    },
+    {
+      "id": 2,
+      "name": "Гость"
+    }
+  ],
+  "projects": [
+    {
+      "id": "001",
+      "user_id": "001",
+      "title": "Time-tracker",
+      "published_at": "2045-06-21"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "001",
+      "project_id": "001",
+      "title": "Продумать базовую структуру баз данных",
+      "timer": "00:00",
+      "paused": true
+    }
+  ]
+}
