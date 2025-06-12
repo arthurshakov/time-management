@@ -23,7 +23,24 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         '@shared': path.resolve(__dirname, 'src/shared'),
+        '@styles': path.resolve(__dirname, 'src/styles'),
+        '@images': path.resolve(__dirname, 'src/assets/images'),
       }
-    }
+    },
+    css: {
+      modules: {
+        localsConvention: 'camelCase', // (Optional) Transforms class names to camelCase in JS
+        generateScopedName: isDev
+          ? '[name]__[local]__[hash:base64:5]' // Readable class names in dev
+          : '[hash:base64:8]', // Short hashes in production
+      },
+      preprocessorOptions: {
+        scss: {
+          additionalData: `
+            @use "@styles/vars.scss" as *;
+          `, // Global SCSS imports
+        },
+      },
+    },
   };
 });

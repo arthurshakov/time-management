@@ -1,0 +1,24 @@
+@use '@styles/vars' as *;
+@use '@styles/mixins' as *;
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  max-width: vc(1700);
+
+  @include desktop {
+    padding-right: vc(40);
+    padding-left: vc(40);
+  }
+
+  @include devices {
+    padding-right: vc(15);
+    padding-left: vc(15);
+  }
+}
+
+.page {
+  padding-top: vc(100);
+  padding-bottom: vc(100);
+}
