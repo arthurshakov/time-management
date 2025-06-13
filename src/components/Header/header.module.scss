@@ -1,0 +1,24 @@
+@use '@styles/mixins' as *;
+
+.header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: $color-light-grey;
+  padding-top: vc(20);
+  padding-bottom: vc(20);
+  box-shadow: 0 0 10px rgba($color-black, 0.15);
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: vc(30);
+  }
+}
