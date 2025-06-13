@@ -2,7 +2,57 @@
   "hash": "56670f02",
   "configHash": "853c30ec",
   "lockfileHash": "769d84cf",
-  "browserHash": "a519b90a",
-  "optimized": {},
-  "chunks": {}
+  "browserHash": "c0f111bc",
+  "optimized": {
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "54e8a30c",
+      "needsInterop": true
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.mjs",
+      "file": "react-router-dom.js",
+      "fileHash": "eefb913b",
+      "needsInterop": false
+    },
+    "react-redux": {
+      "src": "../../node_modules/react-redux/dist/react-redux.mjs",
+      "file": "react-redux.js",
+      "fileHash": "ebf7df21",
+      "needsInterop": false
+    },
+    "redux": {
+      "src": "../../node_modules/redux/dist/redux.mjs",
+      "file": "redux.js",
+      "fileHash": "9fc69870",
+      "needsInterop": false
+    },
+    "redux-thunk": {
+      "src": "../../node_modules/redux-thunk/dist/redux-thunk.mjs",
+      "file": "redux-thunk.js",
+      "fileHash": "5b7693ed",
+      "needsInterop": false
+    },
+    "react-router": {
+      "src": "../../node_modules/react-router/dist/development/index.mjs",
+      "file": "react-router.js",
+      "fileHash": "a335c2c3",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-2I7IWGIN": {
+      "file": "chunk-2I7IWGIN.js"
+    },
+    "chunk-E2O774VM": {
+      "file": "chunk-E2O774VM.js"
+    },
+    "chunk-UM4QHISG": {
+      "file": "chunk-UM4QHISG.js"
+    },
+    "chunk-5WRI5ZAA": {
+      "file": "chunk-5WRI5ZAA.js"
+    }
+  }
 }
