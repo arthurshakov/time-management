@@ -16,4 +16,8 @@
       }
     }
   }
+
+  @include mobile {
+    gap: vc(10);
+  }
 }
