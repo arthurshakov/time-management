@@ -46,9 +46,9 @@ body {
 	overflow-anchor: auto;
 	width: 100%;
 	min-height: 100vh;
-	font-family: $font-source;
-	// font-family: $font-source-code;
-	// font-family: $font-space;
+	// font-family: $font-source;
+	font-family: $font-source-code;
+	font-family: $font-space;
 	font-feature-settings: 'ss02' on;
 	-webkit-font-smoothing: antialiased;
   font-size: vc(20);

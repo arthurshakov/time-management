@@ -2,12 +2,12 @@
 @use '@styles/mixins' as *;
 
 .h1 {
-  font-size: vc(60);
+  font-size: vc(48);
   font-weight: 600;
   font-family: $font-space;
 
   @include mobile {
-    font-size: vc(40);
+    font-size: vc(32);
   }
 }
 

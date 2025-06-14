@@ -17,7 +17,8 @@
 
     @include mobile {
       // flex-direction: column;
-      font-size: vc(16);
+      font-size: vc(15);
+      letter-spacing: -0.03em;
     }
   }
 

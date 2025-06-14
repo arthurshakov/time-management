@@ -4,6 +4,7 @@
   display: flex;
   align-items: center;
   gap: vc(10);
+  font-family: $font-space;
 
   &__image {
     flex-shrink: 0;
