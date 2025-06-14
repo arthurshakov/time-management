@@ -1,6 +1,16 @@
 @use '@styles/vars' as *;
 @use '@styles/mixins' as *;
 
+.h1 {
+  font-size: vc(60);
+  font-weight: 600;
+  font-family: $font-space;
+
+  @include mobile {
+    font-size: vc(40);
+  }
+}
+
 .container {
   margin-right: auto;
   margin-left: auto;

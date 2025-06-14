@@ -1,0 +1,8 @@
+@use '@styles/mixins' as *;
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-dark-grey;
+}

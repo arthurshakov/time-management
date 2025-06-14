@@ -1,0 +1,27 @@
+@use '@styles/mixins' as *;
+
+.timer {
+  &__block {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: vc(20);
+    text-align: center;
+  }
+
+  &__time {
+    font-size: vc(80);
+    font-weight: 600;
+    font-family: $font-space;
+
+    @include mobile {
+      font-size: vc(60);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+  }
+}
