@@ -1,4 +1,5 @@
-import { IconButton } from '../../ui';
+import { IconButton, Button } from '../../ui';
+import { Link } from 'react-router-dom';
 import styles from './projects-page.module.scss';
 
 export const ProjectsPage = () => {
@@ -6,24 +7,32 @@ export const ProjectsPage = () => {
     {
       id: '001',
       name: 'Project A',
+      totalTime: '00:00:00',
       taskIds: [],
     },
     {
       id: '002',
       name: 'Project B',
+      totalTime: '00:00:00',
       taskIds: [],
     },
   ];
 
   return (
-    <div className={`page ${styles['projects-page']}`}>
+    <main className={`page ${styles['projects-page']}`}>
       <div className="container page__container">
-        <h1 className="h1">Projects</h1>
+        <div className={styles['projects-page__top']}>
+          <h1 className="h1">Projects</h1>
+          <Button icon="plus">Create</Button>
+        </div>
         <div className={styles.project__list}>
           {
-            projectList.map(({id, name}) => (
+            projectList.map(({id, name, totalTime}) => (
               <div className={styles.project} key={id}>
-                <h2 className={styles.project__name} key={id}>{name}</h2>
+                <div className={styles.project__info}>
+                  <Link to="/project/" className="text-link">{name}</Link>
+                  <div className={styles['project__total-time']}>{totalTime}</div>
+                </div>
                 <div className={styles.project__buttons}>
                   <IconButton id="edit" size="md" title="Edit" />
                   <IconButton id="trash-o" size="md" title="Delete" />
@@ -33,6 +42,6 @@ export const ProjectsPage = () => {
           }
         </div>
       </div>
-    </div>
+    </main>
   );
 };

@@ -10,7 +10,7 @@ const IconButtonInner = ({id, id2, large}) => {
   )
 }
 
-export const IconButton = ({id, id2 = 'square', large, variant = 'button', to = '', ...props}) => {
+export const IconButton = ({id, id2 = 'square', large, variant = 'button', ...props}) => {
   return (
     <>
       {/* Button */}
@@ -22,8 +22,41 @@ export const IconButton = ({id, id2 = 'square', large, variant = 'button', to = 
 
       {/* Link */}
       {variant === 'link' && (
-        <Link to={to} className={styles['icon-button']} {...props}>
+        <Link className={styles['icon-button']} {...props}>
           <IconButtonInner id={id} id2={id2} large={large} />
+        </Link>
+      )}
+    </>
+  )
+};
+
+const ButtonInner = ({icon, children}) => {
+  return (
+    <>
+      <span>{children}</span>
+      { icon && (
+        <div className={styles.button__icon}>
+          <i className={`fa fa-${icon}`}></i>
+        </div>
+      )}
+    </>
+  );
+};
+
+export const Button = ({variant = 'button', icon = null, children, ...props}) => {
+  return (
+    <>
+      {/* Button */}
+      {variant === 'button' && (
+        <button type="button" className={styles.button} {...props}>
+          <ButtonInner icon={icon} children={children} />
+        </button>
+      )}
+
+      {/* Link */}
+      {variant === 'link' && (
+        <Link className={styles.button} {...props}>
+          <ButtonInner icon={icon} children={children} />
         </Link>
       )}
     </>

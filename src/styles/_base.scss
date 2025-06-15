@@ -54,6 +54,7 @@ body {
   font-size: vc(20);
 	line-height: 1.2;
 	text-decoration-skip: objects;
+  text-decoration-skip-ink: none;
 	text-rendering: optimizeLegibility;
 	text-size-adjust: 100%;
 	-webkit-tap-highlight-color: transparent;
@@ -96,8 +97,7 @@ a {
 	}
 }
 
-button,
-[type='button'] {
+button {
 	appearance: none;
 	border: 0;
 	border-radius: 0;

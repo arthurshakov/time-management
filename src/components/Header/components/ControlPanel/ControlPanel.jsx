@@ -6,7 +6,7 @@ export const ControlPanel = () => {
   return (
     <div className={styles['control-panel']}>
       <div>
-        <Link to="/login" className={styles['text-link']}>Log in</Link>
+        <Link to="/login" className={styles['text-link']}>Sign in</Link>
         <span>|</span>
         <Link to="/login" className={styles['text-link']}>Sign up</Link>
       </div>

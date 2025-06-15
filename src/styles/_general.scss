@@ -40,3 +40,16 @@
     align-items: center;
   }
 }
+
+.text-link {
+  text-decoration: underline;
+  // text-decoration-color: color-mix(in srgb, currentColor 60%, transparent);
+  text-underline-offset: 0.05em;
+  text-decoration-thickness: 0.055em;
+
+  @media (hover: hover) {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
