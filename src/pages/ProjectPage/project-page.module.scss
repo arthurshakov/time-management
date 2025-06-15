@@ -1,1 +1,17 @@
 @use '@styles/mixins' as *;
+
+.project-page {
+  width: 100%;
+  max-width: vc(600);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.task {
+  &__list-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+}

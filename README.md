@@ -96,3 +96,13 @@ type TimeEntry = {
   end?: Date;
 };
 ```
+
+## Single Project page structure
+
+- h1
+- Total time
+- Create new task
+- Analytics link
+- Task items
+  - Task name
+  - Task total time

@@ -25,15 +25,15 @@ export const ProjectsPage = () => {
           <h1 className="h1">Projects</h1>
           <Button icon="plus">Create</Button>
         </div>
-        <div className={styles.project__list}>
+        <div className="list">
           {
             projectList.map(({id, name, totalTime}) => (
-              <div className={styles.project} key={id}>
-                <div className={styles.project__info}>
+              <div className="list__item" key={id}>
+                <div className="list__item-info">
                   <Link to="/project/" className="text-link">{name}</Link>
-                  <div className={styles['project__total-time']}>{totalTime}</div>
+                  <div>{totalTime}</div>
                 </div>
-                <div className={styles.project__buttons}>
+                <div className="list__item-buttons">
                   <IconButton id="edit" size="md" title="Edit" />
                   <IconButton id="trash-o" size="md" title="Delete" />
                 </div>

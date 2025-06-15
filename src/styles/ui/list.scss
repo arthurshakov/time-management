@@ -1,0 +1,32 @@
+@use '@styles/vars' as *;
+@use '@styles/mixins' as *;
+
+.list {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: vc(20);
+  width: 100%;
+  max-width: vc(600);
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: vc(5) vc(20);
+    font-size: vc(24);
+    border: 1px solid $color-grey;
+    gap: vc(20);
+    border-radius: vc($base-border-radius);
+  }
+
+  &__item-info {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    gap: vc(5) vc(20);
+  }
+
+  &__item-buttons {
+    flex-shrink: 0;
+  }
+}

@@ -1,13 +1,25 @@
 @use '@styles/vars' as *;
 @use '@styles/mixins' as *;
 
-.h1 {
-  font-size: vc(48);
+.h1,
+.h2 {
   font-weight: 600;
   font-family: $font-space;
+}
+
+.h1 {
+  font-size: vc(48);
 
   @include mobile {
     font-size: vc(32);
+  }
+}
+
+.h2 {
+  font-size: vc(36);
+
+  @include mobile {
+    font-size: vc(24);
   }
 }
 
