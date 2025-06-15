@@ -73,3 +73,26 @@
    2. Сортировка
    3. Пагинация
    4. Графики
+
+## Project List data structure
+
+``` javascript
+type Project = {
+  id: string;
+  name: string;
+  taskIds: string[]; // References to tasks
+};
+
+type Task = {
+  id: string;
+  projectId: string; // Foreign key
+  name: string;
+};
+
+type TimeEntry = {
+  id: string;
+  taskId: string; // Foreign key
+  start: Date;
+  end?: Date;
+};
+```

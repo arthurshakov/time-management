@@ -19,10 +19,10 @@ export const TimerBlock = () => {
       <div className={styles.timer}>
         <div className={styles.timer__time}>00:00:00</div>
         <div className={styles.timer__buttons}>
-          <IconButton id="play" />
-          <IconButton id="stop" />
-          <IconButton id="undo" />
-          <IconButton id="save" />
+          <IconButton id="play" large title="Play"/>
+          <IconButton id="stop" large title="Stop"/>
+          <IconButton id="undo" large title="Reset"/>
+          <IconButton id="save" large title="Save"/>
         </div>
       </div>
 

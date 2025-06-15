@@ -11,7 +11,14 @@ export const ControlPanel = () => {
         <Link to="/login" className={styles['text-link']}>Sign up</Link>
       </div>
 
-      <IconButton id="user" id2="circle" variant="link" to="/dashboard" />
+      <IconButton
+        id="user"
+        id2="circle"
+        large
+        variant="link"
+        to="/dashboard"
+        title="Dashboard"
+      />
     </div>
   );
 };

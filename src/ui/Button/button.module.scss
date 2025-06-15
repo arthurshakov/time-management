@@ -5,4 +5,11 @@
   align-items: center;
   justify-content: center;
   color: $color-dark-grey;
+  transition: $transition-short;
+
+  @media (hover: hover) {
+    &:hover {
+      color: $color-black;
+    }
+  }
 }

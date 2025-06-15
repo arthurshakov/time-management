@@ -1,0 +1,30 @@
+@use '@styles/mixins' as *;
+
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: vc(5) vc(20);
+  font-size: vc(24);
+  border: 1px solid $color-grey;
+  transition: all 100ms;
+  gap: vc(20);
+  border-radius: vc(4);
+
+  &__list {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: vc(20);
+    width: vc(600);
+  }
+
+  &__buttons {
+    flex-shrink: 0;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: $color-grey-2;
+    }
+  }
+}
