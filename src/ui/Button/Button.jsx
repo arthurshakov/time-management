@@ -35,7 +35,7 @@ const ButtonInner = ({icon, children}) => {
     <>
       <span>{children}</span>
       { icon && (
-        <div className={styles.button__icon}>
+        <div className={styles.button__icon} >
           <i className={`fa fa-${icon}`}></i>
         </div>
       )}
@@ -48,7 +48,11 @@ export const Button = ({variant = 'button', icon = null, children, ...props}) =>
     <>
       {/* Button */}
       {variant === 'button' && (
-        <button type="button" className={styles.button} {...props}>
+        <button
+          type="button"
+          {...props}
+          className={`${styles.button} ${props.className ? props.className : ''}`}
+        >
           <ButtonInner icon={icon} children={children} />
         </button>
       )}

@@ -8,7 +8,11 @@
 }
 
 .h1 {
-  font-size: vc(48);
+  margin-bottom: vc(24);
+
+  @include desktop {
+    font-size: vc(48);
+  }
 
   @include mobile {
     font-size: vc(32);

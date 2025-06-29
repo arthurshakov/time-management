@@ -1,10 +1,11 @@
 {
   "users": [
     {
-      "id": "001",
+      "id": 0,
       "login": "anton",
-      "password": "qwerty123",
-      "role_id": 0
+      "password": "qwe123",
+      "roleId": 0,
+      "createdAt": "2023-10-15T10:00:00Z"
     }
   ],
   "roles": [
@@ -23,19 +24,55 @@
   ],
   "projects": [
     {
-      "id": "001",
-      "user_id": "001",
-      "title": "Time-tracker",
-      "published_at": "2045-06-21"
+      "id": 1,
+      "userId": 0,
+      "name": "Project A",
+      "completed": false,
+      "createdAt": "2023-10-15T10:00:00Z"
+    },
+    {
+      "id": 1,
+      "userId": 0,
+      "name": "Project B",
+      "completed": false,
+      "createdAt": "2023-10-15T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 0,
+      "completed": false,
+      "createdAt": "2023-10-15T10:00:00Z"
     }
   ],
-  "tasks": [
+  "time-entries": [
     {
-      "id": "001",
-      "project_id": "001",
-      "title": "Продумать базовую структуру баз данных",
-      "timer": "00:00",
-      "paused": true
+      "projectId": "001",
+      "projectName": "Project A",
+      "taskName": "Task 1",
+      "duration": 1,
+      "date": "2025-06-26T17:20:48.295Z",
+      "id": 3
+    },
+    {
+      "projectId": "001",
+      "projectName": "Project A",
+      "taskName": "Task 2",
+      "duration": 14,
+      "date": "2025-06-26T17:38:20.659Z",
+      "id": 4
+    }
+  ],
+  "sessions": [
+    {
+      "id": "f175c26e-d1e1-47f1-bfa9-4718d10242d0",
+      "user": {
+        "id": 0,
+        "login": "anton",
+        "roleId": 0,
+        "createdAt": "2023-10-15T10:00:00Z"
+      },
+      "createdAt": "2025-06-29T09:24:24.217Z",
+      "expiresAt": "2025-06-30T09:24:24.217Z"
     }
   ]
 }
