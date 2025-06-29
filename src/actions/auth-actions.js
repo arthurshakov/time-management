@@ -1,6 +1,6 @@
 import { ACTION_TYPES } from "./types";
 
-export const loginSuccess = (userData, sessionId) => {
+export const loginSuccess = (userData, projects, sessionId) => {
   localStorage.setItem('sessionId', sessionId);
 
   const {id, login, roleId, createdAt} = userData;
@@ -9,6 +9,7 @@ export const loginSuccess = (userData, sessionId) => {
     type: ACTION_TYPES.LOGIN_SUCCESS,
     payload: {
       user: {id, login, roleId, createdAt},
+      projects,
       sessionId: sessionId,
       isAuthenticated: true,
     },

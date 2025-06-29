@@ -1,4 +1,4 @@
-import { getUser } from "../api";
+import { getUser, getUserProjects } from "../api";
 import { createSession } from "../api";
 
 export const login = async ({login: authLogin, password: authPassword}) => {
@@ -21,11 +21,13 @@ export const login = async ({login: authLogin, password: authPassword}) => {
   const {id, login, roleId, createdAt} = user;
 
   const session = await createSession({id, login, roleId, createdAt});
+  const projects = await getUserProjects(id);
 
   return {
     error: null,
     res: {
       user: {id, login, roleId, createdAt},
+      projects,
       sessionId: session.id,
     }
   };

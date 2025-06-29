@@ -57,7 +57,7 @@ export const LoginPage = () => {
       setAuthError(authError);
     } else {
       // After successful login
-      dispatch(loginSuccess(res.user, res.sessionId));
+      dispatch(loginSuccess(res.user, res.projects, res.sessionId));
 
       navigate('/');
     }

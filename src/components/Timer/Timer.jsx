@@ -1,55 +1,62 @@
 import { useEffect, useRef, useState } from 'react';
 import { IconButton, TextInput, Select } from '../../ui';
-import { saveTimeEntry, getProjects } from '../../bff/api';
-// import { useAuth } from '../../hooks';
+import { saveTimeEntry } from '../../bff/api';
 import styles from './timer.module.scss';
+import { useSelector } from 'react-redux';
+import { authSelector } from '../../selectors';
+import { Link } from 'react-router-dom';
 
 export const TimerBlock = () => {
   const [projectOptions, setProjectOptions] = useState([]);
+  // const [isLoadingProjects, setIsLoadingProjects] = useState(false);
   const [totalSeconds, setTotalSeconds] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
   const [taskName, setTaskName] = useState('');
-  const [isLoadingProjects, setIsLoadingProjects] = useState(false);
-  // const {user, loading: authLoading} = useAuth();
   const intervalRef = useRef(null);
+  const {isAuthenticated, projects} = useSelector(authSelector);
 
-  // if (authLoading) {
-  //   return <div>Loading auth...</div>;
-  // }
+  useEffect(() => {
+    if (isAuthenticated && projects) {
+      let options = projects.map(project => ({
+        value: project.id,
+        label: project.name,
+      }));
 
-  // if (!user) {
-  //   return <div>Please login to use the timer</div>;
-  // }
+      setProjectOptions(options);
+    }
+  }, [isAuthenticated, projects]);
+
+
 
   const hours = Math.floor(totalSeconds / 3600).toString().padStart(2, '0');
   const minutes = Math.floor((totalSeconds % 3600) / 60).toString().padStart(2, '0');
   const seconds = Math.floor(totalSeconds % 60).toString().padStart(2, '0');
 
-  // Fetch projects on component mount
-  useEffect(() => {
-    const fetchProjects = async () => {
-      setIsLoadingProjects(true);
+  // // Fetch projects on component mount
+  // useEffect(() => {
+  //   const fetchProjects = async () => {
+  //     setIsLoadingProjects(true);
 
-      try {
-        const projects = await getProjects();
+  //     try {
+  //       const projects = await getProjects();
 
-        // Transforming projects from backend to select options format
-        const options = projects.map(project => ({
-          value: project.id,
-          label: project.name,
-        }));
+  //       // Transforming projects from backend to select options format
+  //       const options = projects.map(project => ({
+  //         value: project.id,
+  //         label: project.name,
+  //       }));
 
-        setProjectOptions(options);
-      } catch (error) {
-        console.error('Failed to load projects:', error);
-      } finally {
-        setIsLoadingProjects(false);
-      }
-    }
+  //       setProjectOptions(options);
+  //     } catch (error) {
+  //       console.error('Failed to load projects:', error);
+  //     } finally {
+  //       setIsLoadingProjects(false);
+  //     }
+  //   }
 
-    fetchProjects();
-  }, [])
+  //   fetchProjects();
+  // }, [])
 
   useEffect(() => {
     return () => {
@@ -138,20 +145,27 @@ export const TimerBlock = () => {
         </div>
       </div>
 
-      <div className={styles['timer__project-controls']}>
-        <Select
-          options={projectOptions}
-          isSearchable
-          placeholder="Choose a project..."
-          className={styles['timer__project-select']}
-          value={selectedProject}
-          onChange={setSelectedProject}
-          isLoading={isLoadingProjects} // Show loading indicator in Select
-          isDisabled={isLoadingProjects} // Disable while loading
-        />
+      {
+        isAuthenticated
+        ? <div className={styles['timer__project-controls']}>
+          <Select
+            options={projectOptions}
+            isSearchable
+            placeholder="Choose a project..."
+            className={styles['timer__project-select']}
+            value={selectedProject}
+            onChange={setSelectedProject}
+            // isLoading={isLoadingProjects} // Show loading indicator in Select
+            // isDisabled={isLoadingProjects} // Disable while loading
+            />
 
-        <TextInput placeholder="Name the current task..." value={taskName} onChange={(event) => setTaskName(event.target.value)} />
-      </div>
+          <TextInput placeholder="Name the current task..." value={taskName} onChange={(event) => setTaskName(event.target.value)} />
+        </div>
+
+        : <p>
+            <Link to="/login">Log in</Link> to save your time entries
+          </p>
+      }
     </div>
   );
 };

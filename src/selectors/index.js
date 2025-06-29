@@ -1,1 +1,3 @@
 export const authSelector = (state) => state.auth;
+
+export const userProjectsSelector = (state) => state.userProjects;

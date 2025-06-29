@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { authSelector } from "../selectors";
-import { getSession } from "../bff/api";
 import { useEffect, useState } from "react";
 import { loginSuccess } from "../actions/auth-actions";
+import { fetchAuthDataBySessionId } from "../bff/operations";
 
 export const useAuth = () => {
   const authData = useSelector(authSelector);
@@ -13,6 +13,7 @@ export const useAuth = () => {
   useEffect(() => {
     const checkSession = async() => {
       const localStorageSessionId = localStorage.getItem('sessionId');
+      // console.log
 
       if (authData.isAuthenticated || !localStorageSessionId) {
         setIsLoading(false);
@@ -20,10 +21,13 @@ export const useAuth = () => {
       }
 
       try {
-        const session = await getSession(localStorageSessionId);
-        dispatch(loginSuccess(session.user, session.id));
+        const authDataFromServer = await fetchAuthDataBySessionId(localStorageSessionId);
+        console.log(authDataFromServer);
+
+        dispatch(loginSuccess(authDataFromServer.res.user, authDataFromServer.res.projects, authDataFromServer.res.sessionId));
       } catch(error) {
         console.log(error);
+
         setError(error);
       } finally {
         setIsLoading(false);
@@ -31,6 +35,7 @@ export const useAuth = () => {
     }
 
     checkSession();
+
   }, [authData, dispatch]);
 
   return {...authData, isLoading, error};
