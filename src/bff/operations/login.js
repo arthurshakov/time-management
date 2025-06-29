@@ -21,17 +21,11 @@ export const login = async ({login: authLogin, password: authPassword}) => {
   const {id, login, roleId, createdAt} = user;
 
   const session = await createSession({id, login, roleId, createdAt});
-  console.log(session);
 
   return {
     error: null,
     res: {
-      user: {
-        id: user.id,
-        login: user.login,
-        roleId: user.roleId,
-        createdAt: user.createAt,
-      },
+      user: {id, login, roleId, createdAt},
       sessionId: session.id,
     }
   };

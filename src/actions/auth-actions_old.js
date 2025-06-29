@@ -16,14 +16,6 @@
 //   payload: error
 // });
 
-// export const logout = () => {
-//   localStorage.removeItem('token');
-
-//   return {
-//     type: ACTION_TYPES.LOGOUT
-//   };
-// };
-
 // export const loadUserRequest = () => ({
 //   type: ACTION_TYPES.LOAD_USER_REQUEST
 // });

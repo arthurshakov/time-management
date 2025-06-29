@@ -1,41 +1,24 @@
 import { Button } from "../../ui";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { login } from "../../bff/operations";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginSuccess } from "../../actions/auth-actions";
 import { useAuthRedirect } from "../../hooks";
 import { getFormSchema } from "../../utils";
+import { login, registerUser } from "../../bff/operations";
+import { loginSuccess } from "../../actions/auth-actions";
 
-// const inputMatchConfig = [
-//   /^[a-zA-Z0-9_.]+$/,
-//   'Only letters (a-z, A-Z), numbers (0-9), underscores (_), and dots (.) are allowed'
-// ];
+const signupFormSchema = getFormSchema(['login', 'password', 'repeat-password']);
 
-// const loginFormSchema =  yup.object().shape({
-//   login: yup.string()
-//     .required('Enter your login')
-//     .matches(...inputMatchConfig)
-//     .min(3, 'Login must be a\u00A0minimum of\u00A03\u00A0symbols')
-//     .max(15, 'Login must be a\u00A0maximum of\u00A015\u00A0symbols'),
-//   password: yup.string()
-//     .required('Enter your password')
-//     .matches(...inputMatchConfig)
-//     .min(3, 'Password must be a\u00A0minimum of\u00A03\u00A0symbols')
-//     .max(15, 'Password must be a\u00A0maximum of\u00A015\u00A0symbols'),
-// });
-
-const loginFormSchema = getFormSchema(['login', 'password']);
-
-export const LoginPage = () => {
+export const SignupPage = () => {
   // IF THE USER IS ALREADY LOGGED IN WE REDIRECT HIM TO HOMEPAGE
   useAuthRedirect();
 
-  const navigate = useNavigate();
-  const [authError, setAuthError] = useState(null);
+  // HERE IS THE LOGIC OF RENDERING THE LOGIN FORM IF THE USER IS NOT LOGGED IN
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -46,27 +29,35 @@ export const LoginPage = () => {
     defaultValues: {
       login: '',
       password: '',
+      repeatPassword: '',
     },
-    resolver: yupResolver(loginFormSchema),
+    resolver: yupResolver(signupFormSchema),
   });
 
   const onSubmit = async (formFields) => {
-    const {error: authError, res} = await login(formFields);
+    const {error: registerError} = await registerUser(formFields);
 
-    if (authError) {
-      setAuthError(authError);
+    if (registerError) {
+      setError(registerError);
     } else {
-      // After successful login
-      dispatch(loginSuccess(res.user, res.sessionId));
+      const {error: loginError, res: loginRes} = await login(formFields);
 
-      navigate('/');
+      if (loginError) {
+        setError(loginError);
+      } else {
+        // After successful registration and login
+        dispatch(loginSuccess(loginRes.user, loginRes.sessionId));
+
+        navigate('/');
+      }
     }
   };
 
   return (
     <div className="page">
       <div className="container">
-        <h1 className="h1">Log in</h1>
+        <h1 className="h1">Sign up</h1>
+
         <form noValidate className="form" onSubmit={handleSubmit(onSubmit)}>
           <div className="form__field">
             <input
@@ -92,12 +83,25 @@ export const LoginPage = () => {
             )}
           </div>
 
+
+          <div className="form__field">
+            <input
+              className="form__input"
+              type="password"
+              placeholder="Repeat password"
+              {...register('repeatPassword')}
+            />
+             {errors.repeatPassword && (
+              <p className="form__error">{errors.repeatPassword.message}</p>
+            )}
+          </div>
+
           <div className="form__footer">
             <Button type="submit" className="form__submit-button">Submit</Button>
           </div>
 
-          {authError && (
-            <div>{authError}</div>
+          {error && (
+            <div>{error}</div>
           )}
         </form>
       </div>

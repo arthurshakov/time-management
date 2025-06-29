@@ -14,3 +14,11 @@ export const loginSuccess = (userData, sessionId) => {
     },
   };
 };
+
+export const logout = () => {
+  localStorage.removeItem('sessionId');
+
+  return {
+    type: ACTION_TYPES.LOGOUT
+  };
+};

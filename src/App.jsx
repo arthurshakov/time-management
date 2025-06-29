@@ -1,13 +1,17 @@
 import { Route, Routes } from "react-router";
-import { HomePage, ProjectsPage, ProjectPage, LoginPage } from "./pages";
+import { HomePage, ProjectsPage, ProjectPage, LoginPage, SignupPage } from "./pages";
 import { Header, ProtectedRoute } from "./components";
+import { useAuth } from "./hooks";
 
 export const App = () => {
+  const {isLoading} = useAuth();
+
   return (
-    <>
+    <div className={`app ${!isLoading ? 'is-loaded' : ''}`}>
       <Header />
       <Routes>
         <Route path="/login/" element={<LoginPage />} />
+        <Route path="/signup/" element={<SignupPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/projects/" element={
           // <ProtectedRoute>
@@ -21,6 +25,6 @@ export const App = () => {
         } />
         <Route path="*" element={<div>Ошибка 404</div>} />
       </Routes>
-    </>
+    </div>
   );
 }

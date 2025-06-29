@@ -6,6 +6,13 @@
       "password": "qwe123",
       "roleId": 0,
       "createdAt": "2023-10-15T10:00:00Z"
+    },
+    {
+      "login": "qwe",
+      "password": "qwe",
+      "createdAt": "2025-06-29T13:40:36.173Z",
+      "roleId": 1,
+      "id": 1
     }
   ],
   "roles": [
@@ -44,35 +51,18 @@
       "createdAt": "2023-10-15T10:00:00Z"
     }
   ],
-  "time-entries": [
-    {
-      "projectId": "001",
-      "projectName": "Project A",
-      "taskName": "Task 1",
-      "duration": 1,
-      "date": "2025-06-26T17:20:48.295Z",
-      "id": 3
-    },
-    {
-      "projectId": "001",
-      "projectName": "Project A",
-      "taskName": "Task 2",
-      "duration": 14,
-      "date": "2025-06-26T17:38:20.659Z",
-      "id": 4
-    }
-  ],
+  "time-entries": [],
   "sessions": [
     {
-      "id": "f175c26e-d1e1-47f1-bfa9-4718d10242d0",
+      "id": "41a8d5aa-2265-43ce-97e4-00c6fdbbd5af",
       "user": {
-        "id": 0,
-        "login": "anton",
-        "roleId": 0,
-        "createdAt": "2023-10-15T10:00:00Z"
+        "id": 1,
+        "login": "qwe",
+        "roleId": 1,
+        "createdAt": "2025-06-29T13:40:36.173Z"
       },
-      "createdAt": "2025-06-29T09:24:24.217Z",
-      "expiresAt": "2025-06-30T09:24:24.217Z"
+      "createdAt": "2025-06-29T13:41:49.336Z",
+      "expiresAt": "2025-06-30T13:41:49.336Z"
     }
   ]
 }

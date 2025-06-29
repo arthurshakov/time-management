@@ -1,23 +1,37 @@
-// import { useDispatch, useSelector } from "react-redux";
-// import { authSelector } from "../selectors";
-// import { useEffect } from "react";
-// import { loadUser, login as loginAction, logout as logoutAction } from "../actions/auth-actions";
+import { useDispatch, useSelector } from "react-redux";
+import { authSelector } from "../selectors";
+import { getSession } from "../bff/api";
+import { useEffect, useState } from "react";
+import { loginSuccess } from "../actions/auth-actions";
 
-// export const useAuth = () => {
-//   const {user, loading, error} = useSelector(authSelector);
-//   const dispatch = useDispatch();
+export const useAuth = () => {
+  const authData = useSelector(authSelector);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const dispatch = useDispatch();
 
-//   useEffect(() => {
-//     if (!user && localStorage.getItem('token')) {
-//       dispatch(loadUser());
-//     }
-//   }, [dispatch, user]);
+  useEffect(() => {
+    const checkSession = async() => {
+      const localStorageSessionId = localStorage.getItem('sessionId');
 
-//   return {
-//     user,
-//     loading,
-//     error,
-//     login: (credentials) => dispatch(loginAction(credentials)),
-//     logout: () => dispatch(logoutAction()),
-//   };
-// }
+      if (authData.isAuthenticated || !localStorageSessionId) {
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const session = await getSession(localStorageSessionId);
+        dispatch(loginSuccess(session.user, session.id));
+      } catch(error) {
+        console.log(error);
+        setError(error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    checkSession();
+  }, [authData, dispatch]);
+
+  return {...authData, isLoading, error};
+};

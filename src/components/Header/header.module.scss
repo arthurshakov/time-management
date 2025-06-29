@@ -5,6 +5,7 @@
   width: 100%;
   left: 0;
   top: 0;
+  z-index: $z-header;
   background-color: $color-light-grey;
   padding-top: vc(20);
   padding-bottom: vc(20);
