@@ -21,9 +21,15 @@
 
   &__item-info {
     text-align: left;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 100%;
+    // flex-wrap: wrap;
     gap: vc(5) vc(20);
+  }
+
+  &__item-input {
+    border-radius: vc(3);
+    padding: vc(5) vc(7);
   }
 
   &__item-buttons {

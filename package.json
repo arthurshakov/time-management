@@ -11,7 +11,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "format": "prettier --write ./src",
-    "server": "json-server --watch ./src/db.json --port 3000"
+    "serve": "json-server --watch ./src/db.json --port 3000"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",

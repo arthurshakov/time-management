@@ -12,8 +12,6 @@ export const fetchAuthDataBySessionId = async (sessionId) => {
 
   const projects = await getUserProjects(session.user.id);
 
-  console.log(session);
-
   return {
     error: null,
     res: {

@@ -31,22 +31,18 @@
   ],
   "projects": [
     {
-      "id": 1,
+      "id": 12,
       "userId": 0,
-      "name": "Project A",
+      "name": "Project L",
+      "duration": 0,
       "completed": false,
       "createdAt": "2023-10-15T10:00:00Z"
     },
     {
-      "id": 1,
+      "id": 13,
       "userId": 0,
-      "name": "Project B",
-      "completed": false,
-      "createdAt": "2023-10-15T10:00:00Z"
-    },
-    {
-      "id": 2,
-      "userId": 0,
+      "name": "Project M",
+      "duration": 0,
       "completed": false,
       "createdAt": "2023-10-15T10:00:00Z"
     }
@@ -54,125 +50,26 @@
   "time-entries": [],
   "sessions": [
     {
-      "id": "3749b16f-f983-4662-97c4-5dc5683cedeb",
+      "id": "cd6386c8-fe82-472e-802e-16954a85dff6",
       "user": {
         "id": 0,
         "login": "anton",
         "roleId": 0,
         "createdAt": "2023-10-15T10:00:00Z"
       },
-      "createdAt": "2025-06-29T15:51:23.657Z",
-      "expiresAt": "2025-06-30T15:51:23.657Z"
+      "createdAt": "2025-07-05T17:38:51.141Z",
+      "expiresAt": "2025-07-06T17:38:51.141Z"
     },
     {
-      "id": "7030dd25-9f15-4cfe-9844-0fa0878f16f6",
+      "id": "11b2ddee-185f-4cad-be40-dcaaa5f16eff",
       "user": {
         "id": 0,
         "login": "anton",
         "roleId": 0,
         "createdAt": "2023-10-15T10:00:00Z"
       },
-      "createdAt": "2025-06-29T16:21:33.391Z",
-      "expiresAt": "2025-06-30T16:21:33.391Z"
-    },
-    {
-      "id": "9250dafe-e77f-4b16-86c7-05cfb2fce227",
-      "user": {
-        "id": 0,
-        "login": "anton",
-        "roleId": 0,
-        "createdAt": "2023-10-15T10:00:00Z"
-      },
-      "createdAt": "2025-06-29T16:23:41.736Z",
-      "expiresAt": "2025-06-30T16:23:41.736Z"
-    },
-    {
-      "id": "fd4f6f45-994b-4b66-b2e3-ca216a8df035",
-      "user": {
-        "id": 0,
-        "login": "anton",
-        "roleId": 0,
-        "createdAt": "2023-10-15T10:00:00Z"
-      },
-      "createdAt": "2025-06-29T16:29:11.751Z",
-      "expiresAt": "2025-06-30T16:29:11.751Z"
-    },
-    {
-      "id": "b75a09a5-fbe9-4353-ae15-68bbf7891fee",
-      "user": {
-        "id": 0,
-        "login": "anton",
-        "roleId": 0,
-        "createdAt": "2023-10-15T10:00:00Z"
-      },
-      "createdAt": "2025-06-29T16:31:10.819Z",
-      "expiresAt": "2025-06-30T16:31:10.819Z"
-    },
-    {
-      "id": "45e4ffb4-0e16-42b0-8ca7-ebbe4e8a81be",
-      "user": {
-        "id": 0,
-        "login": "anton",
-        "roleId": 0,
-        "createdAt": "2023-10-15T10:00:00Z"
-      },
-      "createdAt": "2025-06-29T16:37:45.456Z",
-      "expiresAt": "2025-06-30T16:37:45.457Z"
-    },
-    {
-      "id": "31def879-f30d-4cf5-b04b-e3348a05d176",
-      "user": {
-        "id": 0,
-        "login": "anton",
-        "roleId": 0,
-        "createdAt": "2023-10-15T10:00:00Z"
-      },
-      "createdAt": "2025-06-29T16:40:47.347Z",
-      "expiresAt": "2025-06-30T16:40:47.347Z"
-    },
-    {
-      "id": "273942ad-8291-461e-9629-df8359c867fa",
-      "user": {
-        "id": 0,
-        "login": "anton",
-        "roleId": 0,
-        "createdAt": "2023-10-15T10:00:00Z"
-      },
-      "createdAt": "2025-06-29T16:43:40.941Z",
-      "expiresAt": "2025-06-30T16:43:40.941Z"
-    },
-    {
-      "id": "48f99fd5-e1ce-45be-9be2-1613d1f34690",
-      "user": {
-        "id": 0,
-        "login": "anton",
-        "roleId": 0,
-        "createdAt": "2023-10-15T10:00:00Z"
-      },
-      "createdAt": "2025-06-29T16:44:06.362Z",
-      "expiresAt": "2025-06-30T16:44:06.362Z"
-    },
-    {
-      "id": "8bd4bd16-a710-46bc-bcfd-ab93802d4358",
-      "user": {
-        "id": 0,
-        "login": "anton",
-        "roleId": 0,
-        "createdAt": "2023-10-15T10:00:00Z"
-      },
-      "createdAt": "2025-06-29T16:47:10.338Z",
-      "expiresAt": "2025-06-30T16:47:10.338Z"
-    },
-    {
-      "id": "067f6843-a124-44bf-801b-521f643df22d",
-      "user": {
-        "id": 1,
-        "login": "qwe",
-        "roleId": 1,
-        "createdAt": "2025-06-29T13:40:36.173Z"
-      },
-      "createdAt": "2025-06-29T16:48:34.330Z",
-      "expiresAt": "2025-06-30T16:48:34.330Z"
+      "createdAt": "2025-07-06T09:18:31.997Z",
+      "expiresAt": "2025-07-07T09:18:32.003Z"
     }
   ]
 }

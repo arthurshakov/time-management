@@ -22,7 +22,6 @@ export const useAuth = () => {
 
       try {
         const authDataFromServer = await fetchAuthDataBySessionId(localStorageSessionId);
-        console.log(authDataFromServer);
 
         dispatch(loginSuccess(authDataFromServer.res.user, authDataFromServer.res.projects, authDataFromServer.res.sessionId));
       } catch(error) {
